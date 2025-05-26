@@ -88,7 +88,7 @@ python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition
 
 ## Output
 
-**1. TSV File:** Contains detailed motif annotations and structural information.
+###**1. TSV File:** Contains detailed motif annotations and structural information.
 
 ### Example TSV Output
 
@@ -121,7 +121,7 @@ python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition
 
 `count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
 
-**2. Sequence Composition Plot:**
+###**2. Sequence Composition Plot:**
 
 Graphical representation of repeat motifs in the provided examples/CNBP.fasta sequence![Sequence Composition Plot](examples/CNBP_sequence_composition.png)
 
