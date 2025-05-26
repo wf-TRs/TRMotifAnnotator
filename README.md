@@ -47,13 +47,14 @@ python TRMotifAnnotator.py --input <sequence.fa> --output <prefix> --canonical-m
 
 ### Arguments
 
-- `--input <sequence.fa>`: Input FASTA file containing repeat sequences
-- `--output <prefix>`: Prefix for output files
-- `--canonical-motif <motif>`: Canonical repeat motif
-- `--max-mers <motif_length>`: Canonical motif length (e.g., 5 if the motif is AAAAG)
-- `--vlines "[(value1, 'color1'), (value2, 'color2')]"`: User-defined thresholds for allelic classes
-- `--locus <locus-name>`: Name of the locus being analyzed - will be displayed as the plot title
-- `--num-nc-motifs <Non-canonical_motif-number>`: Number of non-canonical motifs to be displayed; by default up to 10 motifs will be displayed
+--input <sequence.fa>: Input FASTA file containing repeat sequences  
+--output <prefix>: Prefix for output files  
+--canonical-motif <motif>: Canonical repeat motif  
+--max-mers <motif_length>: Canonical motif length (e.g., 5 if the motif is AAAAG)  
+--vlines "[(value1, 'color1'), (value2, 'color2')]": User-defined thresholds for allelic classes  
+--locus <locus-name>: Name of the locus being analyzed - will be displayed as the plot title  
+--num-nc-motifs <Non-canonical_motif-number>: Number of non-canonical motifs to be displayed; by default up to 10 motifs will be displayed  
+
 
 ### Example Command
 
