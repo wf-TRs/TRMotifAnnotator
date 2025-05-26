@@ -99,7 +99,8 @@ python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition
 | NA18865.h1_AFR  | 60               | 15           | CCTG             | GCTG, TCTG                   | (CCTG)5-GCTG-CCTG-TCTG-(CCTG)7                 | 13                     | 2                          | 13.33                  | 2                           | 0                             |
 | NA18865.h2_AFR  | 68               | 17           | CCTG             | GCTG, TCTG                   | (CCTG)7-GCTG-CCTG-TCTG-(CCTG)7                 | 15                     | 2                          | 11.76                  | 2                           | 0                             |
 
-Description of the TSV Output Columns:
+**Description of the TSV Output Columns:**
+
 `sequence_length`: Sequence length (in base pairs)  
 `repeat_copy_number`: Number of repeat copies in the sequence  
 `canonical_motif`: The canonical repeat motif sequence  
@@ -112,7 +113,7 @@ Description of the TSV Output Columns:
 `count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
   
 
-`**Sequence Composition Plot:**` Graphical representation of repeat motifs of the provided CNBP.fasta sequence.
+`**Sequence Composition Plot:**` Graphical representation of repeat motifs of the provided CNBP.fasta sequence
 ![Sequence Composition Plot](examples/CNBP_sequence_composition.png)
 
 ## Citation
