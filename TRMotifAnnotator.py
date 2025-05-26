@@ -16,15 +16,15 @@ CANONICAL_COLOR = 'slategray'
 RANDOM_SEED = 42
 
 DISTINCT_COLORS = OrderedDict([
-    ("Blue",         "#1F77B4"), ("Orange",       "#FF7F0E"), ("Green",        "#2CA02C"),
-    ("Red-Orange",   "#D62728"), ("Purple",       "#9467BD"), ("Brown",        "#8C564B"),
-    ("Pink",         "#E377C2"), ("Yellow-Green", "#BCBD22"), ("Cyan",         "#17BECF"),
-    ("Light Pink",   "#F5A3B8"), ("Pale Green",   "#C7E9A9"), ("Bright Yellow","#F2F200"),
-    ("Deep Pink",    "#FF1493"), ("Blue Violet",  "#8A2BE2"), ("Tomato Red",   "#FF6347"),
-    ("Goldenrod",    "#DAA520"), ("Amber",        "#F4A300"), ("Dark Turquoise","#00CED1"),
-    ("Slate Blue",   "#6A5ACD"), ("Dark Red",     "#8B0000"), ("Medium Orchid","#BA55D3"),
-    ("Forest Green", "#347C4C"), ("Light Gray",   "#CFCFCF"), ("Bright Red",   "#D43F00"),
-    ("Lavender",     "#CE93D8")
+    ("Blue",          "#0072B2"), ("Orange",       "#E69F00"), ("Sky Blue",       "#56B4E9"),
+    ("Bluish Green",  "#009E73"), ("Yellow",       "#F0E442"), ("Vermillion",     "#D55E00"),
+    ("Reddish Purple","#CC79A7"), ("Gray",         "#999999"), ("Light Green",    "#B9FBC0"),
+    ("Light Blue",    "#A0C4FF"), ("Light Purple", "#CBAACB"), ("Dark Blue",      "#264653"),
+    ("Mint",          "#9AEBA3"), ("Light Yellow", "#FFEB99"), ("Soft Red",       "#FFADAD"),
+    ("Light Cyan",    "#B5E2FA"), ("Teal",         "#5BC0EB"), ("Olive",          "#A5A58D"),
+    ("Coral",         "#FF6B6B"), ("Steel Blue",   "#4682B4"), ("Dusty Rose",     "#D8A7B1"),
+    ("Tan",           "#DDBEA9"), ("Dark Cyan",    "#008080"), ("Mustard",        "#FFD23F"),
+    ("Slate",         "#708090")
 ])
 
 def read_fasta(file_path: str) -> Dict[str, str]:
