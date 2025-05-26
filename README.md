@@ -120,7 +120,8 @@ python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition
 `count_nc_same_length`: Counts of non-canonical motifs with the same length as the canonical motif
 
 `count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
-  
+
+
 
 **2. Sequence Composition Plot:**
 
