@@ -12,7 +12,7 @@ from matplotlib.font_manager import FontProperties
 from collections import OrderedDict
 
 # Constants
-CANONICAL_COLOR = 'lightskyblue'
+CANONICAL_COLOR = 'slategray'
 RANDOM_SEED = 42
 
 DISTINCT_COLORS = OrderedDict([
