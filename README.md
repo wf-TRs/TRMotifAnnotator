@@ -75,15 +75,18 @@ python TRMotifAnnotator.py --input example.fa --output results --canonical-motif
 | HG00261_EUR_GBR  | 108             | 36          | CAG             | CAT                         | (CAG)17-CAT-CAG-CAT-(CAG)16   | 34                   | 2                         | 5.56                 | 2                         | 0                             |
 | HG00360_EUR_FIN  | 108             | 36          | CAG             | CAT                         | (CAG)17-CAT-CAG-CAT-(CAG)16   | 34                   | 2                         | 5.56                 | 2                         | 0                             |
 
-The TSV file includes:
-- Sequence lengths (in base pairs)  
-- Repeat copy numbers  
-- Canonical motifs  
-- Non-canonical motifs (in the order they occur within the repeat tract)  
-- Detailed repeat structure  
-- Counts of canonical and non-canonical motifs  
-- Percentage of non-canonical bases (proportion of bases from non-canonical motifs)  
-- Counts of non-canonical motifs of the same length as the canonical motif or of different length  
+Description of the TSV Output Columns:
+`sequence_length`: Sequence length (in base pairs)  
+`repeat_copy_number`: Number of repeat copies in the sequence  
+`canonical_motif`: The canonical repeat motif sequence  
+`non_canonical_motifs`: Non-canonical motifs found, listed in the order they appear within the repeat tract  
+`repeat_structure`: Detailed description of the repeat structure combining canonical and non-canonical motifs  
+`count_canonical`: Counts of canonical motifs within the sequence  
+`count_non_canonical`: Counts of non-canonical motifs within the sequence  
+`percent_non_canonical_bases`: Percentage of bases in the sequence that are from non-canonical motifs  
+`count_nc_same_length`: Counts of non-canonical motifs with the same length as the canonical motif  
+`count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
+  
 
 - **Sequence Composition Plot:** Graphical representation of repeat motifs of the four sequences above.
 ![Sequence Composition Plot](examples/ATXN1_sequence_composition.png)
