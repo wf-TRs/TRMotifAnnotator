@@ -74,17 +74,15 @@ python TRMotifAnnotator.py --input example.fa --output results --canonical-motif
 | HG00261_EUR_GBR  | 108             | 36          | CAG             | CAT                         | (CAG)17-CAT-CAG-CAT-(CAG)16   | 34                   | 2                         | 5.56                 | 2                         | 0                             |
 | HG00360_EUR_FIN  | 108             | 36          | CAG             | CAT                         | (CAG)17-CAT-CAG-CAT-(CAG)16   | 34                   | 2                         | 5.56                 | 2                         | 0                             |
 
-The TSV file (_ATXN1_ locus) includes:
-
-- Sequence lengths (in base pairs)
-- Repeat copy numbers
-- Canonical motifs
-- Non-canonical motifs (in the order they occur within the repeat tract)
-- Detailed repeat structure
-- Counts of canonical and non-canonical motifs
-- Percentage of non-canonical bases (proportion of bases from non-canonical motifs)
-- Counts of non-canonical motifs of the same length as the canonical motif or of different length
-
+The TSV file includes:
+- Sequence lengths (in base pairs)  
+- Repeat copy numbers  
+- Canonical motifs  
+- Non-canonical motifs (in the order they occur within the repeat tract)  
+- Detailed repeat structure  
+- Counts of canonical and non-canonical motifs  
+- Percentage of non-canonical bases (proportion of bases from non-canonical motifs)  
+- Counts of non-canonical motifs of the same length as the canonical motif or of different length  
 
 - **Sequence Composition Plot:** Graphical representation of repeat motifs of the four sequences above.
 ![Sequence Composition Plot](examples/ATXN1_sequence_composition.png)
