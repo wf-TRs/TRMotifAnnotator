@@ -2,7 +2,7 @@
 
 ## Overview
 
-TRMotifAnnotator is a command-line tool designed for the identification and annotation of tandem repeat (TR) motifs within disease-associated loci. The tool detects both **canonical** and **non-canonical** repeat motifs, including those resulting from **substitutions** or **insertion/deletion (indel) events**. The output includes a **TSV file** with detailed annotations of repeat genotypes and motif structures, along with a **sequence composition plot** highlighting canonical and non-canonical motifs.
+TRMotifAnnotator is a command-line tool designed for the identification and annotation of motifs in tandem repeats. The tool detects both **canonical** and **non-canonical** repeat motifs, including those resulting from **substitutions** or **insertion/deletion (indel) events**. The output includes a **TSV file** with detailed annotations of repeat genotypes and motif structures, along with a **sequence composition plot** highlighting canonical and non-canonical motifs.
 
 ## Features
 
@@ -113,8 +113,9 @@ python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition
 `count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
   
 
-`**Sequence Composition Plot:**` Graphical representation of repeat motifs of the provided CNBP.fasta sequence
-![Sequence Composition Plot](examples/CNBP_sequence_composition.png)
+`**Sequence Composition Plot:**`
+
+Graphical representation of repeat motifs in the provided CNBP.fasta sequence![Sequence Composition Plot](examples/CNBP_sequence_composition.png)
 
 ## Citation
 
