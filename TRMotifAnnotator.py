@@ -303,7 +303,7 @@ def visualize_motifs(
 
     # Plot
     n_sequences = len(color_stack)
-    fig_width = 10
+    fig_width = 15
     height_per_seq = 0.3
     fig_height = max(6, min(height_per_seq * n_sequences, 30))
     fig, ax = plt.subplots(figsize=(fig_width, fig_height), constrained_layout=True)
