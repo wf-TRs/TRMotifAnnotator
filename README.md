@@ -112,7 +112,7 @@ Description of the TSV Output Columns:
 `count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
   
 
-`**Sequence Composition Plot:**` Graphical representation of repeat motifs of the four sequences above.
+`**Sequence Composition Plot:**` Graphical representation of repeat motifs of the provided CNBP.fasta sequence.
 ![Sequence Composition Plot](examples/CNBP_sequence_composition.png)
 
 ## Citation
