@@ -64,27 +64,20 @@ python TRMotifAnnotator.py --input <sequence.fa> --output <prefix> --canonical-m
 
 ### Arguments
 
-`--input <sequence.fa>`  
-Input FASTA file containing repeat sequences.
+`--input <sequence.fa>`: Input FASTA file containing repeat sequences.
 
-`--output <prefix>`  
-Prefix for output files.
+`--output <prefix>`: Prefix for output files.
 
-`--canonical-motif <motif>`  
-Canonical repeat motif.
+`--canonical-motif <motif>`: Canonical repeat motif.
 
-`--max-mers <motif_length>`  
-Canonical motif length (e.g., 5 if the motif is AAAAG).
+`--max-mers <motif_length>`: Canonical motif length (e.g., 5 if the motif is AAAAG).
 
-`--vlines "[(value1, 'color1'), (value2, 'color2')]"`  
-Optional user-defined vertical lines to highlight thresholds for allelic classification.  
+`--vlines "[(value1, 'color1'), (value2, 'color2')]"`: Optional user-defined vertical lines to highlight thresholds for allelic classification.  
 ⚠️ **Note:** Each `value` must be an integer within the range of the sequence length (i.e., between 0 and the maximum sequence length in your dataset).
 
-`--locus <locus-name>`  
-Name of the locus being analyzed; will be displayed as the plot title.
+`--locus <locus-name>`: Name of the locus being analyzed; will be displayed as the plot title.
 
-`--num-nc-motifs <Non-canonical_motif-number>`  
-Number of non-canonical motifs to be displayed; by default, up to 10 motifs will be shown.
+`--num-nc-motifs <Non-canonical_motif-number>`: Number of non-canonical motifs to be displayed; by default, up to 10 motifs will be shown.
 
 
 ### Example Command
