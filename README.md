@@ -125,6 +125,11 @@ python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition
 
 Graphical representation of repeat motifs in the provided examples/CNBP.fasta sequence![Sequence Composition Plot](examples/CNBP_sequence_composition.png)
 
+### Visualization Notes
+
+- **Sequence ordering:** Sequences in the plot are **sorted by length**, with **shorter sequences displayed at the top**.
+- **Canonical motifs:** The **canonical motif** is shown in **slategray** for easy identification.
+
 ## Citation
 
 If you use TRMotifAnnotator in your research, please cite:
