@@ -6,11 +6,28 @@ TRMotifAnnotator is a command-line tool designed for the identification and anno
 
 ## Features
 
-- Identifies and annotates **repeat motifs** in given sequences
-- Detects **non-canonical motifs** caused by substitutions or indels
-- Outputs a **TSV file** with motif details
-- Generates **sequence composition plots**
-- Allows **user-defined allelic class thresholds** for visualization
+- **Motif Annotation**  
+  Detects and annotates canonical repeat motifs in user-provided sequences.
+
+- **Non-Canonical Motif Detection**  
+  Identifies repeat interruptions caused by substitutions, insertions, or deletions—capturing motif diversity within repeat tracts.
+
+- **Detailed TSV Output**  
+  Generates a tab-delimited `.tsv` file with:
+  - Sample ID and sequence length  
+  - Repeat copy number and canonical motif  
+  - Sorted non-canonical motifs (by order of appearance)  
+  - Detailed repeat structure  
+  - Counts of canonical and non-canonical motifs  
+  - Percentage of non-canonical bases  
+  - Classification of non-canonical motifs by length (same as or different from canonical)
+
+- **Motif Composition Plots**  
+  Produces high-resolution, motif-colored plots visualizing sequence composition across samples.
+
+- **Custom Threshold and Motif Highlighting**  
+  Supports user-defined thresholds and vertical reference lines, along with optional specification of non-canonical motifs for visualization.
+
 
 ## Installation
 
