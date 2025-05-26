@@ -59,7 +59,7 @@ python TRMotifAnnotator.py --input <sequence.fa> --output <prefix> --canonical-m
 ### Example Command
 
 ```bash
-python TRMotifAnnotator.py --input example.fa --output results --canonical-motif CAG --max-mers 3 --vlines "[(105, 'red')]" --locus ATXN1
+python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition --canonical-motif CCTG --max-mers 4 --vlines "[(120, 'green)]" --locus CNBP
 ```
 
 ## Output
