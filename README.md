@@ -35,7 +35,7 @@ pip install numpy matplotlib pandas biopython
 To install TRMotifAnnotator, clone the GitHub repository:
 
 ```bash
-git clone https://github.com/your-repo/TRMotifAnnotator.git
+git [clone https://github.com/your-repo/TRMotifAnnotator.git](https://github.com/wf-TRs/TRMotifAnnotator.git)
 cd TRSeqExplorer
 ```
 
