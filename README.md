@@ -64,7 +64,7 @@ python TRMotifAnnotator.py --input example.fa --output results --canonical-motif
 
 ## Output
 
-- **TSV File:** Contains detailed motif annotations and structural information.
+`**TSV File:**` Contains detailed motif annotations and structural information.
 
 ### Example TSV File
 
@@ -88,7 +88,7 @@ Description of the TSV Output Columns:
 `count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
   
 
-- **Sequence Composition Plot:** Graphical representation of repeat motifs of the four sequences above.
+`**Sequence Composition Plot:**` Graphical representation of repeat motifs of the four sequences above.
 ![Sequence Composition Plot](examples/ATXN1_sequence_composition.png)
 
 ## Citation
