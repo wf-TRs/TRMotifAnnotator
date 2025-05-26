@@ -99,4 +99,4 @@ If you use TRMotifAnnotator in your research, please cite:
 
 ## Contact
 
-For issues or contributions, open a GitHub issue or contact: **Your Name** - [indhu.babu@bcchr.ca](mailto\:indhu.babu@bcchr.ca)
+For issues or contributions, open a GitHub issue or contact: Indhu Shree Rajan Babu - [indhu.babu@bcchr.ca](mailto\:indhu.babu@bcchr.ca)
