@@ -18,16 +18,14 @@ TRMotifAnnotator is a command-line tool designed for the identification and anno
 
 TRMotifAnnotator requires the following:
 
-- Python 3.x
+- Python 3.6+
 - NumPy
 - Matplotlib
-- Pandas
-- Biopython
 
 Install dependencies using:
 
 ```bash
-pip install numpy matplotlib pandas biopython
+pip install numpy matplotlib
 ```
 
 ### Cloning the Repository
