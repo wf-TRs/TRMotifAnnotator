@@ -36,7 +36,7 @@ To install TRMotifAnnotator, clone the GitHub repository:
 
 ```bash
 git clone https://github.com/wf-TRs/TRMotifAnnotator.git
-cd TRSeqExplorer
+cd TRMotifAnnotator
 ```
 
 ## Usage
