@@ -66,14 +66,14 @@ python TRMotifAnnotator.py --input example.fa --output results --canonical-motif
 
 `**TSV File:**` Contains detailed motif annotations and structural information.
 
-### Example TSV File
+### Example TSV Output
 
-| Sample ID        | Sequence Length | Repeat Copy | Canonical Motif | Sorted Non-Canonical Motifs | Repeat Structure                | Canonical Motif Count | Non-Canonical Motif Count | % Non-Canonical Base | Non-Canonical Same Length | Non-Canonical Different Length |
-|------------------|-----------------|-------------|-----------------|-----------------------------|--------------------------------|----------------------|---------------------------|----------------------|---------------------------|-------------------------------|
-| HG00101_EUR_GBR  | 111             | 37          | CAG             | CAT                         | (CAG)18-CAT-CAG-CAT-(CAG)16   | 35                   | 2                         | 5.41                 | 2                         | 0                             |
-| HG00131_EUR_GBR  | 108             | 36          | CAG             | CAT                         | (CAG)17-CAT-CAG-CAT-(CAG)16   | 34                   | 2                         | 5.56                 | 2                         | 0                             |
-| HG00261_EUR_GBR  | 108             | 36          | CAG             | CAT                         | (CAG)17-CAT-CAG-CAT-(CAG)16   | 34                   | 2                         | 5.56                 | 2                         | 0                             |
-| HG00360_EUR_FIN  | 108             | 36          | CAG             | CAT                         | (CAG)17-CAT-CAG-CAT-(CAG)16   | 34                   | 2                         | 5.56                 | 2                         | 0                             |
+| Sample ID       | Sequence Length | Repeat Copy | Canonical Motif | Sorted Non-Canonical Motifs | Repeat Structure                              | Canonical Motif Count | Non-Canonical Motif Count | % Non-Canonical Base | Non-Canonical Same Length | Non-Canonical Different Length |
+|-----------------|------------------|--------------|------------------|------------------------------|------------------------------------------------|------------------------|----------------------------|------------------------|-----------------------------|-------------------------------|
+| NA18864.h1_AFR  | 72               | 18           | CCTG             | GCTG, TCTG                   | (CCTG)8-GCTG-CCTG-TCTG-(CCTG)7                 | 16                     | 2                          | 11.11                  | 2                           | 0                             |
+| NA18864.h2_AFR  | 80               | 20           | CCTG             | GCTG, TCTG                   | (CCTG)10-GCTG-CCTG-TCTG-(CCTG)7                | 18                     | 2                          | 10.00                  | 2                           | 0                             |
+| NA18865.h1_AFR  | 60               | 15           | CCTG             | GCTG, TCTG                   | (CCTG)5-GCTG-CCTG-TCTG-(CCTG)7                 | 13                     | 2                          | 13.33                  | 2                           | 0                             |
+| NA18865.h2_AFR  | 68               | 17           | CCTG             | GCTG, TCTG                   | (CCTG)7-GCTG-CCTG-TCTG-(CCTG)7                 | 15                     | 2                          | 11.76                  | 2                           | 0                             |
 
 Description of the TSV Output Columns:
 `sequence_length`: Sequence length (in base pairs)  
