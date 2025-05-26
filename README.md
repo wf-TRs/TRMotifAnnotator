@@ -101,15 +101,24 @@ python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition
 
 **Description of the TSV Output Columns:**
 
-`sequence_length`: Sequence length (in base pairs)  
-`repeat_copy_number`: Number of repeat copies in the sequence  
-`canonical_motif`: The canonical repeat motif sequence  
-`non_canonical_motifs`: Non-canonical motifs found, listed in the order they appear within the repeat tract  
-`repeat_structure`: Detailed description of the repeat structure combining canonical and non-canonical motifs  
-`count_canonical`: Counts of canonical motifs within the sequence  
-`count_non_canonical`: Counts of non-canonical motifs within the sequence  
-`percent_non_canonical_bases`: Percentage of bases in the sequence that are from non-canonical motifs  
-`count_nc_same_length`: Counts of non-canonical motifs with the same length as the canonical motif  
+`sequence_length`: Sequence length (in base pairs)
+
+`repeat_copy_number`: Number of repeat copies in the sequence
+
+`canonical_motif`: The canonical repeat motif sequence
+
+`non_canonical_motifs`: Non-canonical motifs found, listed in the order they appear within the repeat tract
+
+`repeat_structure`: Detailed description of the repeat structure combining canonical and non-canonical motifs
+
+`count_canonical`: Counts of canonical motifs within the sequence
+
+`count_non_canonical`: Counts of non-canonical motifs within the sequence
+
+`percent_non_canonical_bases`: Percentage of bases in the sequence that are from non-canonical motifs
+
+`count_nc_same_length`: Counts of non-canonical motifs with the same length as the canonical motif
+
 `count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
   
 
