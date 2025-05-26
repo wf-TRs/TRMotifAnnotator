@@ -85,6 +85,7 @@ The TSV file (_ATXN1_ locus) includes:
 - Percentage of non-canonical bases (proportion of bases from non-canonical motifs)
 - Counts of non-canonical motifs of the same length as the canonical motif or of different length
 
+
 - **Sequence Composition Plot:** Graphical representation of repeat motifs of the four sequences above.
 ![Sequence Composition Plot](examples/ATXN1_sequence_composition.png)
 
