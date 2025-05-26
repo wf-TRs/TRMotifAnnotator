@@ -95,7 +95,7 @@ Description of the TSV Output Columns:
 
 If you use TRMotifAnnotator in your research, please cite:
 
-> Indhu-Shree Rajan Babu, Readman Chiu et al. In-Depth Characterisation of Disease-Associated Tandem Repeat Loci and Their Local Ancestries and Haplotypes in Diverse Human Populations.
+> Indhu-Shree Rajan Babu, Readman Chiu et al. Population-Level Characterization of Disease-Associated Tandem Repeat Loci in Long-Read Diploid Assemblies: Integrating Genotype, Sequence, Phylogenetic, and Local Ancestry Analyses, and Linkage Disequilibrium Structure.
 
 ## Contact
 
