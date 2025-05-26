@@ -106,7 +106,7 @@ Description of the TSV Output Columns:
   
 
 `**Sequence Composition Plot:**` Graphical representation of repeat motifs of the four sequences above.
-![Sequence Composition Plot](examples/ATXN1_sequence_composition.png)
+![Sequence Composition Plot](examples/CNBP_sequence_composition.png)
 
 ## Citation
 
