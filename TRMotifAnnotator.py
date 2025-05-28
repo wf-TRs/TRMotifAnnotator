@@ -275,7 +275,7 @@ def visualize_motifs(
     motifs_dict: Dict[str, List[str]],
     num_nc_motifs: int
 ):
-    """Visualize motifs without grouping by superpopulation or population."""
+    """Visualize motifs without grouping."""
     
     sorted_sequences = sorted(sequences.items(), key=lambda x: len(x[1]), reverse=True)
     max_seq_len = max(len(seq) for _, seq in sorted_sequences)
