@@ -134,7 +134,7 @@ Graphical representation of repeat motifs in the provided examples/CNBP.fasta se
 
 If you use TRMotifAnnotator in your research, please cite:
 
-> Indhu Shree Rajan Babu, Readman Chiu et al. Population-Level Characterization of Disease-Associated Tandem Repeat Loci in Long-Read Diploid Assemblies: Integrating Genotype, Sequence, Phylogenetic, and Local Ancestry Analyses, and Linkage Disequilibrium Structure.
+> Indhu Shree Rajan Babu, Readman Chiu, Ben Weisburd, Iris Caglayan, Heidi L. Rehm, Inanc Birol, Jan M. Friedman. Population-Level Characterization of Disease-Associated Tandem Repeat Loci in Long-Read Diploid Assemblies: Integrating Genotype, Sequence, Phylogenetic, and Local Ancestry Analyses, and Linkage Disequilibrium Structure.
 
 ## Contact
 
