@@ -7,7 +7,7 @@ TRMotifAnnotator is a command-line tool designed for the identification and anno
 ## Features
 
 - **Motif Annotation**  
-  Detects and annotates canonical repeat motifs in user-provided sequences.
+  Detects and annotates repeat motifs in assembled sequences.
 
 - **Non-Canonical Motif Detection**  
   Identifies repeat interruptions caused by substitutions, insertions, or deletions—capturing motif diversity within repeat tracts.
