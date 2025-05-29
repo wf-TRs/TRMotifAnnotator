@@ -22,8 +22,8 @@ TRMotifAnnotator is a command-line tool designed for the identification and anno
   - Percentage of non-canonical bases  
   - Classification of non-canonical motifs by length (same as or different from canonical)
 
-- **Motif Composition Plots**  
-  Produces motif-colored plots visualizing sequence composition across samples.
+- **Motif Composition Plot**  
+  Produces motif-colored plot visualizing sequence composition across assembled sequences.
 
 - **Custom Threshold and Motif Highlighting**  
   Supports user-defined thresholds and vertical reference lines, along with optional specification of non-canonical motifs for visualization.
@@ -65,18 +65,12 @@ python TRMotifAnnotator.py --input <sequence.fa> --output <prefix> --canonical-m
 ### Arguments
 
 `--input <sequence.fa>`: Input FASTA file containing repeat sequences.
-
 `--output <prefix>`: Prefix for output files.
-
 `--canonical-motif <motif>`: Canonical repeat motif.
-
 `--max-mers <motif_length>`: Canonical motif length (e.g., 5 if the motif is AAAAG).
-
 `--vlines "[(value1, 'color1'), (value2, 'color2')]"`: Optional user-defined vertical lines to highlight thresholds for allelic classification.  
 ⚠️ **Note:** Each `value` must be an integer within the range of the sequence length (i.e., between 0 and the maximum sequence length in your dataset).
-
 `--locus <locus-name>`: Name of the locus being analyzed; will be displayed as the plot title.
-
 `--num-nc-motifs <Non-canonical_motif-number>`: Number of non-canonical motifs to be displayed; by default, up to 10 motifs will be shown.
 
 
@@ -102,23 +96,14 @@ python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition
 **Description of the TSV Output Columns:**
 
 `sequence_length`: Sequence length (in base pairs)
-
 `repeat_copy_number`: Number of repeat copies in the sequence
-
 `canonical_motif`: The canonical repeat motif sequence
-
 `non_canonical_motifs`: Non-canonical motifs found, listed in the order they appear within the repeat tract
-
 `repeat_structure`: Detailed description of the repeat structure combining canonical and non-canonical motifs
-
 `count_canonical`: Counts of canonical motifs within the sequence
-
 `count_non_canonical`: Counts of non-canonical motifs within the sequence
-
 `percent_non_canonical_bases`: Percentage of bases in the sequence that are from non-canonical motifs
-
 `count_nc_same_length`: Counts of non-canonical motifs with the same length as the canonical motif
-
 `count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
 
 **2. Sequence Composition Plot:**
