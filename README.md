@@ -266,6 +266,108 @@ Special handling for EIF4A3 (18-23mer motifs):
 
 ---
 
+## TRGT Integration
+
+### Extracting Sequences from TRGT VCF Files
+
+The included `TRGT-helper.py` script extracts allele sequences from [TRGT](https://github.com/PacificBiosciences/trgt) VCF files and converts them to FASTA format for analysis with TRMotifAnnotator.
+
+**TRGT** (Tandem Repeat Genotyping Tool) genotypes tandem repeats from PacBio HiFi data. The helper script bridges TRGT output to motif-level analysis.
+
+#### Basic Usage
+
+```bash
+python TRGT-helper.py <vcf> [--prefix PREFIX]
+```
+
+**Arguments:**
+- `vcf` - TRGT VCF file (plain or gzipped)
+- `--prefix` - Optional output prefix
+
+**Output naming:**
+- Single sample VCF: `SAMPLE_TRID.fasta`
+- Multi-sample VCF: `TRID.fasta`
+- Custom prefix: `PREFIX_TRID.fasta`
+
+#### Examples
+
+**Single Sample:**
+```bash
+python TRGT-helper.py HG002_trgt.vcf.gz
+# Output: HG002_RFC1.fasta, HG002_HTT.fasta, etc.
+```
+
+**Multiple Samples:**
+```bash
+python TRGT-helper.py cohort_trgt.vcf.gz
+# Output: RFC1.fasta, HTT.fasta, CNBP.fasta, etc.
+```
+
+**Custom Prefix:**
+```bash
+python TRGT-helper.py cohort_trgt.vcf.gz --prefix EUR_cohort
+# Output: EUR_cohort_RFC1.fasta, EUR_cohort_HTT.fasta, etc.
+```
+
+### Complete TRGT → TRMotifAnnotator Pipeline
+
+```bash
+#!/bin/bash
+
+SAMPLE="HG002"
+LOCUS="RFC1"
+CANONICAL="AAAAG"
+
+# Step 1: Run TRGT genotyping
+trgt \
+  --genome reference.fasta \
+  --repeats repeats.bed \
+  --reads ${SAMPLE}.bam \
+  --output-prefix ${SAMPLE}_trgt
+
+# Step 2: Extract allele sequences
+python TRGT-helper.py ${SAMPLE}_trgt.vcf.gz
+# Output: HG002_RFC1.fasta (and other loci)
+
+# Step 3: Analyze motifs
+python TRMotifAnnotator.py \
+  --input ${SAMPLE}_${LOCUS}.fasta \
+  --output ${SAMPLE}_${LOCUS}_motifs \
+  --canonical-motif ${CANONICAL} \
+  --max-mers 5 \
+  --locus ${LOCUS} \
+  --treat-motif-rotations \
+  --html
+
+# Results:
+# - HG002_RFC1_motifs.tsv
+# - HG002_RFC1_motifs.png
+# - HG002_RFC1_motifs.html
+```
+
+### FASTA Output Format
+
+```
+>HG002_RFC1_Allele-1
+AAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAAG
+AAAAGAAAAGAAAAGAAAAG
+>HG002_RFC1_Allele-2
+AAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAGGAAAAGAAAAGAAAAG
+AAAAGAAAAGAAAAGAAAAGAAAAGAAAAGAAAAG
+```
+
+**Header format:** `SAMPLE_TRID_Allele-N`
+
+### Helper Script Features
+
+- **Automatic detection**: Extracts all TRIDs from VCF
+- **Gzip support**: Handles `.vcf` and `.vcf.gz` files
+- **Phasing preserved**: Maintains allele order from GT field
+- **Multi-locus**: Processes all tandem repeats in one run
+- **No dependencies**: Uses only Python standard library
+
+---
+
 ## Citation
 
 If you use TRMotifAnnotator in your research, please cite:
