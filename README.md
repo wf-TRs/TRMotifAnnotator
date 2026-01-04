@@ -90,7 +90,7 @@ python TRMotifAnnotator.py \
 | `--treat-motif-rotations` | Treat rotations as canonical | False |
 | `--html` | Generate HTML report | False |
 | `--stratify-by-superpop` | Stratify visualization by superpopulation | False |
-| `--superpop-file` | TSV mapping: `seq_id<TAB>superpop` | None |
+| `--superpop-file` | TSV mapping if auto-detection fails: `seq_id<TAB>superpop` | Auto-detect |
 
 ---
 
@@ -170,11 +170,20 @@ python TRMotifAnnotator.py \
   --canonical-motif AAAAG \
   --max-mers 5 \
   --locus RFC1 \
-  --stratify-by-superpop \
-  --superpop-file population_mapping.tsv
+  --stratify-by-superpop
 ```
 
-**Population mapping format:**
+**Automatic detection:** TRMotifAnnotator automatically extracts superpopulation codes from FASTA headers using common patterns:
+- `[NA18519.p1_AFR]` or `[NA18519.p2_AFR]`
+- `HG00321[EUR]` or `HG00321_EUR`
+- `NA12878.h1_AFR` or `sample_EAS_CHB`
+
+**Manual mapping (optional):** Provide a TSV file if automatic detection fails:
+```bash
+--superpop-file population_mapping.tsv
+```
+
+**Mapping file format:**
 ```
 NA18519.p1	AFR
 NA18519.p2	AFR
