@@ -1,141 +1,294 @@
 # TRMotifAnnotator
 
-## Overview
+A command-line tool for identifying, annotating, and visualizing motifs in tandem repeats. Detects canonical and variant repeat motifs including substitutions, insertions, and deletions.
 
-TRMotifAnnotator is a command-line tool designed for the identification and annotation of motifs in tandem repeats. The tool detects both **canonical** and **non-canonical** repeat motifs, including those resulting from **substitutions** or **insertion/deletion (indel) events**. The output includes a **TSV file** with detailed annotations of repeat genotypes and motif structures, along with a **sequence composition plot** highlighting canonical and non-canonical motifs.
+---
 
 ## Features
 
-- **Motif Annotation**  
-  Detects and annotates repeat motifs in assembled sequences.
+- **Motif Detection**: Identifies canonical and non-canonical repeat motifs with single-base resolution
+- **Multiple Canonical Motifs**: Support for repeats with multiple motif variants (e.g., `CAG,CAA` for polyglutamine)
+- **Degenerate Bases**: IUPAC codes automatically expand (e.g., `GCN` → `GCA,GCC,GCG,GCT`)
+- **Rotation Handling**: Configurable treatment of motif rotations (coding vs. non-coding repeats)
+- **Population Stratification**: Optional visualization stratified by superpopulation
+- **Statistical Output**: Comprehensive TSV with motif counts, percentages, and structures
+- **Visualization**: Color-coded sequence composition plots with customizable legends
+- **HTML Reports**: Interactive reports with embedded plots and data tables
 
-- **Non-Canonical Motif Detection**  
-  Identifies repeat interruptions caused by substitutions, insertions, or deletions—capturing motif diversity within repeat tracts.
-
-- **Detailed TSV Output**  
-  Generates a tab-delimited `.tsv` file with:
-  - Sample ID and sequence length  
-  - Repeat copy number and canonical motif  
-  - Sorted non-canonical motifs (by order of appearance)  
-  - Detailed repeat structure  
-  - Counts of canonical and non-canonical motifs  
-  - Percentage of non-canonical bases  
-  - Classification of non-canonical motifs by length (same as or different from canonical)
-
-- **Motif Composition Plot**  
-  Produces motif-colored plot visualizing sequence composition across assembled sequences.
-
-- **Custom Threshold and Motif Highlighting**  
-  Supports user-defined thresholds and vertical reference lines, along with optional specification of non-canonical motifs for visualization.
-
+---
 
 ## Installation
 
-### Dependencies
-
-TRMotifAnnotator requires the following:
-
+**Requirements:**
 - Python 3.6+
 - NumPy
 - Matplotlib
 
-Install dependencies using:
-
 ```bash
+# Install dependencies
 pip install numpy matplotlib
-```
 
-### Cloning the Repository
-
-To install TRMotifAnnotator, clone the GitHub repository:
-
-```bash
+# Clone repository
 git clone https://github.com/wf-TRs/TRMotifAnnotator.git
 cd TRMotifAnnotator
+
+# Verify installation
+python TRMotifAnnotator.py --help
 ```
+
+---
+
+## Quick Start
+
+```bash
+python TRMotifAnnotator.py \
+  --input RFC1_sequences.fasta \
+  --output RFC1_analysis \
+  --canonical-motif AAAAG \
+  --max-mers 5 \
+  --locus RFC1
+```
+
+**Output:**
+- `RFC1_analysis.tsv` - Detailed motif annotations
+- `RFC1_analysis.png` - Sequence composition visualization
+
+---
 
 ## Usage
 
-Run the script with the following command:
+### Basic Command
 
 ```bash
-python TRMotifAnnotator.py --input <sequence.fa> --output <prefix> --canonical-motif <motif> --max-mers <motif_length> --vlines "[(value1, 'color1'), (value2, 'color2')]" --locus <locus-name>
+python TRMotifAnnotator.py \
+  --input <input.fasta> \
+  --output <output_prefix> \
+  --canonical-motif <motif> \
+  --max-mers <length> \
+  --locus <locus_name>
 ```
 
-### Arguments
+### Required Arguments
 
-`--input <sequence.fa>`: Input FASTA file containing repeat sequences.
+| Argument | Description | Example |
+|----------|-------------|---------|
+| `--input` | Input FASTA file | `RFC1.fasta` |
+| `--output` | Output prefix (no extension) | `RFC1_results` |
+| `--canonical-motif` | Canonical motif(s), comma-separated | `AAAAG` or `CAG,CAA` |
+| `--max-mers` | Motif length | `5` |
+| `--locus` | Locus name | `RFC1` |
 
-`--output <prefix>`: Prefix for output files.
+### Optional Arguments
 
-`--canonical-motif <motif>`: Canonical repeat motif.
+| Argument | Description | Default |
+|----------|-------------|---------|
+| `--vlines` | Vertical reference lines: `"[(pos, 'color'), ...]"` | None |
+| `--num-nc-motifs` | Number of non-canonical motifs in legend | `10` |
+| `--non-canonical-motifs` | User-specified non-canonical motifs | Auto-detect |
+| `--hide-y-label` | Hide sample IDs on y-axis | Show |
+| `--sort-sequences` | Sort order: `input`, `largest`, `smallest` | `input` |
+| `--treat-motif-rotations` | Treat rotations as canonical | False |
+| `--html` | Generate HTML report | False |
+| `--stratify-by-superpop` | Stratify visualization by superpopulation | False |
+| `--superpop-file` | TSV mapping: `seq_id<TAB>superpop` | None |
 
-`--max-mers <motif_length>`: Canonical motif length (e.g., 5 if the motif is AAAAG).
+---
 
-`--vlines "[(value1, 'color1'), (value2, 'color2')]"`: Optional user-defined vertical lines to highlight thresholds for allelic classification.  
-⚠️ **Note:** Each `value` must be an integer within the range of the sequence length (i.e., between 0 and the maximum sequence length in your dataset).
+## Examples
 
-`--locus <locus-name>`: Name of the locus being analyzed; will be displayed as the plot title.
-
-`--num-nc-motifs <Non-canonical_motif-number>`: Number of non-canonical motifs to be displayed; by default, up to 10 motifs will be shown.
-
-
-### Example Command
+### Example 1: Basic Analysis
 
 ```bash
-python TRMotifAnnotator.py --input CNBP.fasta --output CNBP_sequence_composition --canonical-motif CCTG --max-mers 4 --vlines "[(120, 'green)]" --locus CNBP
+python TRMotifAnnotator.py \
+  --input RFC1.fasta \
+  --output RFC1_basic \
+  --canonical-motif AAAAG \
+  --max-mers 5 \
+  --locus RFC1
 ```
 
-## Output
+### Example 2: Multiple Canonical Motifs (Polyglutamine)
 
-**1. TSV File:** Contains detailed motif annotations and structural information.
+```bash
+python TRMotifAnnotator.py \
+  --input HTT.fasta \
+  --output HTT_polyQ \
+  --canonical-motif CAG,CAA \
+  --max-mers 3 \
+  --locus HTT
+```
 
-### Example TSV Output
+Both `CAG` and `CAA` are treated as canonical and colored identically.
 
-| Sample ID       | Sequence Length | Repeat Copy | Canonical Motif | Sorted Non-Canonical Motifs | Repeat Structure                              | Canonical Motif Count | Non-Canonical Motif Count | % Non-Canonical Base | Non-Canonical Same Length | Non-Canonical Different Length |
-|-----------------|------------------|--------------|------------------|------------------------------|------------------------------------------------|------------------------|----------------------------|------------------------|-----------------------------|-------------------------------|
-| NA18864.h1_AFR  | 72               | 18           | CCTG             | GCTG, TCTG                   | (CCTG)8-GCTG-CCTG-TCTG-(CCTG)7                 | 16                     | 2                          | 11.11                  | 2                           | 0                             |
-| NA18864.h2_AFR  | 80               | 20           | CCTG             | GCTG, TCTG                   | (CCTG)10-GCTG-CCTG-TCTG-(CCTG)7                | 18                     | 2                          | 10.00                  | 2                           | 0                             |
-| NA18865.h1_AFR  | 60               | 15           | CCTG             | GCTG, TCTG                   | (CCTG)5-GCTG-CCTG-TCTG-(CCTG)7                 | 13                     | 2                          | 13.33                  | 2                           | 0                             |
-| NA18865.h2_AFR  | 68               | 17           | CCTG             | GCTG, TCTG                   | (CCTG)7-GCTG-CCTG-TCTG-(CCTG)7                 | 15                     | 2                          | 11.76                  | 2                           | 0                             |
+### Example 3: Degenerate Bases (Polyalanine)
 
-**Description of the TSV Output Columns:**
+```bash
+python TRMotifAnnotator.py \
+  --input PHOX2B.fasta \
+  --output PHOX2B_polyA \
+  --canonical-motif GCN \
+  --max-mers 3 \
+  --locus PHOX2B
+```
 
-`sequence_length`: Sequence length (in base pairs)
+`GCN` expands to `GCA`, `GCC`, `GCG`, `GCT` (all treated as canonical).
 
-`repeat_copy_number`: Number of repeat copies in the sequence
+### Example 4: Rotation Handling (Non-Coding)
 
-`canonical_motif`: The canonical repeat motif sequence
+```bash
+python TRMotifAnnotator.py \
+  --input RFC1.fasta \
+  --output RFC1_noncoding \
+  --canonical-motif AAAAG \
+  --max-mers 5 \
+  --locus RFC1 \
+  --treat-motif-rotations
+```
 
-`non_canonical_motifs`: Non-canonical motifs found, listed in the order they appear within the repeat tract
+All rotations (`AAAAG`, `AAAGA`, `AAGAA`, `AGAAA`, `GAAAA`) treated as canonical.
 
-`repeat_structure`: Detailed description of the repeat structure combining canonical and non-canonical motifs
+### Example 5: Allelic Boundaries & HTML Report
 
-`count_canonical`: Counts of canonical motifs within the sequence
+```bash
+python TRMotifAnnotator.py \
+  --input CNBP.fasta \
+  --output CNBP_annotated \
+  --canonical-motif CCTG \
+  --max-mers 4 \
+  --locus CNBP \
+  --vlines "[(120, 'green'), (250, 'orange'), (400, 'red')]" \
+  --num-nc-motifs 15 \
+  --html
+```
 
-`count_non_canonical`: Counts of non-canonical motifs within the sequence
+### Example 6: Population Stratification
 
-`percent_non_canonical_bases`: Percentage of bases in the sequence that are from non-canonical motifs
+```bash
+python TRMotifAnnotator.py \
+  --input cohort.fasta \
+  --output cohort_stratified \
+  --canonical-motif AAAAG \
+  --max-mers 5 \
+  --locus RFC1 \
+  --stratify-by-superpop \
+  --superpop-file population_mapping.tsv
+```
 
-`count_nc_same_length`: Counts of non-canonical motifs with the same length as the canonical motif
+**Population mapping format:**
+```
+NA18519.p1	AFR
+NA18519.p2	AFR
+HG00321.p1	EUR
+```
 
-`count_nc_diff_length`: Counts of non-canonical motifs with lengths different from the canonical motif  
+### Example 7: Large Dataset (Hidden Labels)
 
-**2. Sequence Composition Plot:**
+```bash
+python TRMotifAnnotator.py \
+  --input population_cohort.fasta \
+  --output cohort_analysis \
+  --canonical-motif AAAAG \
+  --max-mers 5 \
+  --locus RFC1 \
+  --sort-sequences smallest \
+  --hide-y-label \
+  --num-nc-motifs 15
+```
 
-Graphical representation of repeat motifs in the provided examples/CNBP.fasta sequence![Sequence Composition Plot](examples/CNBP_sequence_composition.png)
+---
 
-### Visualization Notes
+## Output Files
 
-- **Sequence ordering:** Sequences in the plot are **sorted by length**, with **shorter sequences displayed at the top**.
-- **Canonical motifs:** The **canonical motif** is shown in **slategray** for easy identification.
+### TSV File (`<output>.tsv`)
+
+Tab-delimited file with motif annotations:
+
+| Column | Description |
+|--------|-------------|
+| `Sample ID` | Sequence identifier |
+| `Sequence Length` | Total sequence length (bp) |
+| `Repeat Copy` | Number of repeat units |
+| `Canonical Motif` | Canonical motif(s) analyzed |
+| `SortedNon-CanonicalMotifs` | Non-canonical motifs (order of appearance) |
+| `Repeat Structure` | Detailed structure (e.g., `(AAAAG)5-AAAGG-(AAAAG)3`) |
+| `Canonical Motif Count` | Number of canonical occurrences |
+| `Non-Canonical Motif Count` | Number of non-canonical occurrences |
+| `%Non-Canonical Base` | Percentage of non-canonical bases |
+| `Non-Canonical Same Length` | Same-length variants |
+| `Non-Canonical Different Length` | Different-length variants |
+
+### Visualization (`<output>.png`)
+
+High-resolution plot showing:
+- **X-axis**: Sequence position
+- **Y-axis**: Sample IDs (optional)
+- **Colors**: Unique color per motif (canonical = light sky blue)
+- **Legend**: Most common motifs (configurable)
+
+### HTML Report (`<output>.html`)
+
+Interactive report with:
+- Input parameters and metadata
+- Embedded visualization
+- Scrollable TSV data table
+- Links to output files
+
+---
+
+## Advanced Features
+
+### Motif Rotation Handling
+
+**Coding repeats** (rotations change amino acids):
+```bash
+--canonical-motif CAG  # Only exact CAG is canonical
+```
+
+**Non-coding repeats** (rotations are equivalent):
+```bash
+--canonical-motif AAAAG --treat-motif-rotations
+```
+
+### Custom Non-Canonical Motifs
+
+```bash
+--non-canonical-motifs AAAGG,AAAGA,AAGGG
+```
+
+### Locus-Specific Processing
+
+Special handling for EIF4A3 (18-23mer motifs):
+```bash
+--canonical-motif CCTCGCTGCCGCTGCCGA \
+--max-mers 18 \
+--locus EIF4A3
+```
+
+---
 
 ## Citation
 
 If you use TRMotifAnnotator in your research, please cite:
 
-> Indhu Shree Rajan Babu, Readman Chiu, Ben Weisburd, Iris Caglayan, Inanc Birol, Jan M. Friedman. Population genomics of disease-associated tandem repeat sequences.
+```bibtex
+@article{RajanBabu2025,
+  title={Population-scale disease-associated tandem repeat analysis reveals locus and ancestry-specific insights},
+  author={Rajan-Babu, Indhu-Shree and Chiu, Readman and Weisburd, Ben and Caglayan, Iris and Birol, Inanc and Friedman, Jan M},
+  journal={medRxiv},
+  year={2025},
+  doi={10.1101/2025.10.11.25337795}
+}
+```
 
-## Contact
+---
 
-For issues or contributions, open a GitHub issue or contact: Indhu Shree Rajan Babu - [indhu.babu@bcchr.ca](mailto\:indhu.babu@bcchr.ca)
+## Support
+
+- **GitHub Issues**: [github.com/wf-TRs/TRMotifAnnotator/issues](https://github.com/wf-TRs/TRMotifAnnotator/issues)
+- **Contact**: Indhu Shree Rajan Babu - indhu.babu@bcchr.ca
+
+---
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
