@@ -13,7 +13,7 @@ A command-line tool for identifying, annotating, and visualizing motifs in tande
 - **Population Stratification**: Optional visualization stratified by superpopulation
 - **Statistical Output**: Comprehensive TSV with motif counts, percentages, and structures
 - **Visualization**: Color-coded sequence composition plots with customizable legends
-- **HTML Reports**: Interactive reports with embedded plots and data tables
+- **HTML Reports**: Reports with embedded plots and data tables
 
 ---
 
@@ -145,7 +145,7 @@ python TRMotifAnnotator.py \
   --treat-motif-rotations
 ```
 
-All rotations (`AAAAG`, `AAAGA`, `AAGAA`, `AGAAA`, `GAAAA`) treated as canonical.
+All motif rotations (`AAAAG`, `AAAGA`, `AAGAA`, `AGAAA`, `GAAAA`) treated the same. This applies to both canonical and non-canonical motifs.
 
 ### Example 5: Allelic Boundaries & HTML Report
 
